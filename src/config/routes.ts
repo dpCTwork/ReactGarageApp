@@ -1,6 +1,7 @@
 import Home from "@/pages/Home"
-import Garage from "@/pages/Garage"
 import About from "@/pages/About"
+import Garage from "@/pages/Garage"
+import Contact from "@/pages/Contact"
 
 interface RouteType {
 	path: string
@@ -23,6 +24,11 @@ const routes: RouteType[] = [
 		path: "/garage",
 		component: Garage,
 		name: "Garage",
+	},
+	{
+		path: "/contact",
+		component: Contact,
+		name: "Contact",
 	},
 ]
 
