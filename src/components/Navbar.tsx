@@ -14,39 +14,42 @@ const Navbar = () => {
 	// const [isOpen, setIsOpen] = useState(false)
 
 	return (
-		<nav className="flex items-center justify-between px-8 py-4 border-b border-border text-primary">
-			<div className="flex items-center justify-between gap-4 text-2xl">
-				<Logo height={"30"} width={"30"} color={"#007f5f"} />
+		<nav className="flex items-center justify-between px-7 py-2 border-b border-border text-foreground">
+			<div className="flex items-center justify-between gap-4 text-xl">
+				<Logo height={"25"} width={"25"} color={"#007f5f"} />
 				My Car App
 			</div>
 
-			<div className="flex justify-end gap-7 text-xl ml-auto mr-10">
-				<ModeToggle />
-				<Button className="bg-accent text-accent-foreground text-base font-normal hover:bg-muted-foreground">
+			<div className="hidden sm:flex sm:justify-start sm:gap-7 sm:m-auto">
+				<Button
+					size="sm"
+					className="bg-background text-foreground text-md font-normal hover:bg-muted">
 					<Link to="/about">About</Link>
 				</Button>
-				<Button className="bg-accent text-accent-foreground text-base font-normal hover:bg-muted-foreground">
+				<Button
+					size="sm"
+					className="bg-background text-foreground text-md font-normal hover:bg-muted">
 					<Link to="/garage">Garage</Link>
 				</Button>
-				<Button className="bg-accent text-accent-foreground text-base font-normal hover:bg-muted-foreground">
+				<Button
+					size="sm"
+					className="bg-background text-foreground text-md font-normal hover:bg-muted">
 					<Link to="/contact">Contact</Link>
 				</Button>
 			</div>
 
-			<div className="flex mr-3">
+			<div className="flex gap-2">
+				<ModeToggle />
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
-						<Button
-							variant="link"
-							size="icon"
-							className="rounded-full">
-							<Avatar className="border-2 border-primary p-1">
+						<Button variant="ghost" size="smr">
+							<Avatar>
 								<AvatarImage
 									className="rounded-full"
 									src="https://github.com/shadcn.pg"
 									alt="placeholder"
 								/>
-								<AvatarFallback className="bg-muted">
+								<AvatarFallback>
 									<User />
 								</AvatarFallback>
 							</Avatar>
@@ -57,14 +60,24 @@ const Navbar = () => {
 						align="center"
 						forceMount>
 						<DropdownMenuGroup>
-							<DropdownMenuItem className="justify-center">
-								My Account
+							<DropdownMenuItem className="justify-start ps-5">
+								My Profile
 							</DropdownMenuItem>
-							<DropdownMenuItem className="justify-center">
+							<DropdownMenuItem className="justify-start ps-5">
 								My Vehicles
 							</DropdownMenuItem>
 							<DropdownMenuSeparator />
-							<DropdownMenuItem className="justify-center">
+							<DropdownMenuItem className="justify-start ps-5 sm:hidden">
+								<Link to="/about">About</Link>
+							</DropdownMenuItem>
+							<DropdownMenuItem className="justify-start ps-5 sm:hidden">
+								<Link to="/garage">Garage</Link>
+							</DropdownMenuItem>
+							<DropdownMenuItem className="justify-start ps-5 sm:hidden">
+								<Link to="/contact">Contact</Link>
+							</DropdownMenuItem>
+							<DropdownMenuSeparator className="sm:hidden" />
+							<DropdownMenuItem className="justify-start ps-5">
 								Sign Out
 							</DropdownMenuItem>
 						</DropdownMenuGroup>
