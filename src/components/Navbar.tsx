@@ -14,40 +14,37 @@ const Navbar = () => {
 	// const [isOpen, setIsOpen] = useState(false)
 
 	return (
-		<nav className="flex items-center justify-between px-7 py-2 border-b border-border text-foreground">
-			<div className="flex items-center justify-between gap-4 text-xl">
+		<nav className="flex items-center justify-between px-3 sm:px-7 py-2 border-b border-border text-foreground">
+			<div className="flex items-center justify-between gap-4 text-xl xs:text-base">
 				<Logo height={"25"} width={"25"} color={"#007f5f"} />
 				My Car App
 			</div>
 
 			<div className="hidden sm:flex sm:justify-start sm:gap-7 sm:m-auto">
 				<Button
-					size="sm"
-					className="bg-background text-foreground text-md font-normal hover:bg-muted">
+					size="sm">
 					<Link to="/about">About</Link>
 				</Button>
 				<Button
-					size="sm"
-					className="bg-background text-foreground text-md font-normal hover:bg-muted">
+					size="sm">
 					<Link to="/garage">Garage</Link>
 				</Button>
 				<Button
-					size="sm"
-					className="bg-background text-foreground text-md font-normal hover:bg-muted">
+					size="sm">
 					<Link to="/contact">Contact</Link>
 				</Button>
 			</div>
 
-			<div className="flex gap-2">
+			<div className="flex gap-2 sm:gap-4 md:gap-8">
 				<ModeToggle />
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
-						<Button variant="ghost" size="smr">
+						<Button variant="outline" size="smr">
 							<Avatar>
 								<AvatarImage
 									className="rounded-full"
 									src="https://github.com/shadcn.pg"
-									alt="placeholder"
+									alt="user_avatar"
 								/>
 								<AvatarFallback>
 									<User />
