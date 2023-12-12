@@ -1,8 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "./ui/button"
 
-// import { DropdownMenu, DropdownMenuItem } from "@/components/ui/dropdown-menu"
-
 import Logo from "./ui/app-logo"
 import { User} from "lucide-react"
 import { Link } from "react-router-dom"
@@ -17,7 +15,7 @@ const Navbar = () => {
 		<nav className="flex items-center justify-between px-3 sm:px-7 py-2 border-b border-border text-foreground">
 			<div className="flex items-center justify-between gap-4 text-xl xs:text-base">
 				<Logo height={"25"} width={"25"} color={"#007f5f"} />
-				My Car App
+				<Link to="/">My Car App</Link>
 			</div>
 
 			<div className="hidden sm:flex sm:justify-start sm:gap-7 sm:m-auto">
@@ -43,7 +41,7 @@ const Navbar = () => {
 							<Avatar>
 								<AvatarImage
 									className="rounded-full"
-									src="https://github.com/shadcn.pg"
+									src="https://github.com/shadcn.png"
 									alt="user_avatar"
 								/>
 								<AvatarFallback>
