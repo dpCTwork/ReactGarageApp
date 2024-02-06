@@ -1,4 +1,3 @@
-
 import { ColumnDef } from "@tanstack/react-table"
 
 export type Cars = {
@@ -6,14 +5,14 @@ export type Cars = {
 	make: string
 	model: string
 	year: number
-    color: string
+	color: string
 }
 
 export const columns: ColumnDef<Cars>[] = [
-    {
-        accessorKey: "year",
-        header: "Year",
-    },
+	{
+		accessorKey: "year",
+		header: "Year",
+	},
 	{
 		accessorKey: "make",
 		header: "Make",

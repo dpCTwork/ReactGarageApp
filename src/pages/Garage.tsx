@@ -1,8 +1,15 @@
-import { DataTable } from "@/components/DataTable"
-import { Cars, columns } from "@/components/col-defs"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { DataTable } from "@/components/ui/data-table"
+import { Cars, columns } from "@/lib/col-defs"
+// import { Button } from "@/components/ui/button"
 
+// import {
+// 	Dialog,
+// 	DialogContent,
+// 	DialogHeader,
+// 	DialogTitle,
+// 	DialogTrigger,
+// } from "@/components/ui/dialog"
+import CarForm from "@/components/CarForm"
 
 // async function getData(): Promise<Cars[]> {
 // 	// Fetch data from your API here.
@@ -17,8 +24,6 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 // 	]
 // }
 
-
-
 const Garage = () => {
 	const data: Cars[] = [
 		{
@@ -30,27 +35,32 @@ const Garage = () => {
 		},
 	]
 
+	// const { handleSubmit } = useForm<TCarFormSchema>()
+
+	// const onSubmit = (values: TCarFormSchema) => {
+	// 	console.log(values)
+	// }
+
 	return (
 		<>
 			<div className="container mx-auto py-10">
 				<DataTable columns={columns} data={data} />
 			</div>
-			<div className="mx-auto">
-				<Button variant={"outline"}>
-					<Dialog>
-						<DialogTrigger>Open</DialogTrigger>
-						<DialogContent>
-							<DialogHeader>
-								<DialogTitle>Are you sure absolutely sure?</DialogTitle>
-								<DialogDescription>
-									This action cannot be undone. This will permanently
-									delete your account and remove your data from our
-									servers.
-								</DialogDescription>
-							</DialogHeader>
-						</DialogContent>
-					</Dialog>
-				</Button>
+			<div className="mx-auto px-4 py-2 bg-background hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center rounded-md text-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-muted-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
+				{/* <Button variant={"outline"}> */}
+				{/* <Dialog>
+					<DialogTrigger>Open</DialogTrigger>
+					<DialogContent>
+						<DialogHeader>
+							<DialogTitle>
+								Add, update, or delete a new car
+							</DialogTitle>
+						</DialogHeader>
+						<CarForm />
+					</DialogContent>
+				</Dialog> */}
+				{/* </Button> */}
+				<CarForm />
 			</div>
 		</>
 	)
