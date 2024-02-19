@@ -12,7 +12,7 @@ import {
 import { Input } from "./ui/input"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { carFormSchema } from "@/server/carform"
+import { TCarFormSchema, carFormSchema } from "@/server/carform"
 import {
 	Dialog,
 	DialogContent,
@@ -21,6 +21,9 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from "./ui/dialog"
+import { useNavigate } from "react-router-dom"
+import { addDoc, collection } from "firebase/firestore"
+import { db } from "@/config/firebase"
 
 const CarForm = () => {
 	// Can also use <z.infer<typeof carFormSchema>> instead of <TCarFormSchema>. See "onSubmit" function below for example.
@@ -30,13 +33,33 @@ const CarForm = () => {
 		defaultValues: {
 			make: "",
 			model: "",
-			year: 2019,
+			year: "",
 			color: "",
 		},
 	})
 
-	const onSubmit = (values: z.infer<typeof carFormSchema>) => {
-		console.log(values)
+	const navigate = useNavigate()
+
+	// const onCreatePost = async (data: CreateFormData) => {
+	// 	// console.log(data)
+	// 	await addDoc(postsRef, {
+	// 		// title: data.title,
+	// 		// body: data.body,
+	// 		// can destructure to achieve the same thing
+	// 		...data,
+	// 		user: user?.displayName,
+	// 		userId: user?.uid,
+	// 	})
+	// 	navigate("/")
+	// }
+
+	const carsRef = collection(db, "cars")
+
+	const onSubmit = async (data: TCarFormSchema) => {
+		await addDoc(carsRef, {
+			...data,
+		})
+		navigate("/")
 	}
 
 	return (

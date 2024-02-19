@@ -1,14 +1,15 @@
 import { ColumnDef } from "@tanstack/react-table"
+import { TCarFormSchema } from "@/server/carform"
 
-export type Cars = {
-	id: string
-	make: string
-	model: string
-	year: number
-	color: string
-}
+// export type Cars = {
+// 	id: string
+// 	make: string
+// 	model: string
+// 	year: number
+// 	color: string
+// }
 
-export const columns: ColumnDef<Cars>[] = [
+export const columns: ColumnDef<TCarFormSchema>[] = [
 	{
 		accessorKey: "year",
 		header: "Year",
