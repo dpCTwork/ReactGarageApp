@@ -21,9 +21,9 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from "./ui/dialog"
-import { useNavigate } from "react-router-dom"
-import { addDoc, collection } from "firebase/firestore"
-import { db } from "@/config/firebase"
+// import { addDoc, collection } from "firebase/firestore"
+// import { db } from "@/config/firebase"
+import { apiCalls } from "@/server/api/server"
 
 const CarForm = () => {
 	// Can also use <z.infer<typeof carFormSchema>> instead of <TCarFormSchema>. See "onSubmit" function below for example.
@@ -38,28 +38,19 @@ const CarForm = () => {
 		},
 	})
 
-	const navigate = useNavigate()
-
-	// const onCreatePost = async (data: CreateFormData) => {
-	// 	// console.log(data)
-	// 	await addDoc(postsRef, {
-	// 		// title: data.title,
-	// 		// body: data.body,
-	// 		// can destructure to achieve the same thing
-	// 		...data,
-	// 		user: user?.displayName,
-	// 		userId: user?.uid,
-	// 	})
-	// 	navigate("/")
-	// }
-
-	const carsRef = collection(db, "cars")
+	// const carsRef = collection(db, "cars")
 
 	const onSubmit = async (data: TCarFormSchema) => {
-		await addDoc(carsRef, {
-			...data,
-		})
-		navigate("/")
+		console.log("onSubmit triggered")
+		// await addDoc(carsRef, {
+		// 	...data,
+		// })
+
+		apiCalls.addCar(data)
+
+		// console.log(carsRef)
+		// navigate("/garage")
+		window.location.reload()
 	}
 
 	return (
